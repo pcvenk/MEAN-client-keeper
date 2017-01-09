@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.get('/clients', function(req, res){
+   //get the data in the collection
    db.clients.find(function(err, docs){
       if(err){
          console.log('Request sent');
