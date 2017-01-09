@@ -76,7 +76,7 @@
                             ng-click="addClient()">Add</button>
                 </td>
             </tr>
-            <tr ng-repeat="client in clients">
+            <tr ng-repeat="client in clients | orderBy: 'firstName'">
                 <td>{{client.firstName}}</td>
                 <td>{{client.lastName}}</td>
                 <td>{{client.email}}</td>
