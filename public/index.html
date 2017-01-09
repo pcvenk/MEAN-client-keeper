@@ -49,26 +49,31 @@
                 <td>
                     <input type="text"
                            class="form-control"
-                           name="firstName">
+                           name="firstName"
+                           ng-model="client.firstName">
                 </td>
                 <td>
                     <input type="text"
                            class="form-control"
-                           name="lastName">
+                           name="lastName"
+                           ng-model="client.lastName">
                 </td>
                 <td>
                     <input type="email"
                            class="form-control"
-                           name="email">
+                           name="email"
+                           ng-model="client.email">
                 </td>
                 <td>
                     <input type="text"
                            class="form-control"
-                           name="phone">
+                           name="phone"
+                           ng-model="client.phone">
                 </td>
                 <td>
                     <button id="addBtn"
-                            class="btn btn-primary btn-xs">Add</button>
+                            class="btn btn-primary btn-xs"
+                            ng-click="addClient()">Add</button>
                 </td>
             </tr>
             <tr ng-repeat="client in clients">

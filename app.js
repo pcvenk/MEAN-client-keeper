@@ -12,6 +12,7 @@ app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+//Getting the list of clients
 app.get('/clients', function(req, res){
    //get the data in the collection
    db.clients.find(function(err, docs){
@@ -23,6 +24,20 @@ app.get('/clients', function(req, res){
          res.send(docs);
       }
    });
+});
+
+//Adding a new client
+app.post('/clients', function(req, res){
+
+   //data comes from req.body
+   db.clients.insert(req.body, function(err, doc){
+      if(err){
+         res.send(err);
+      } else {
+         console.log('New client inserted');
+         res.send(doc);
+      }
+   })
 });
 
 app.listen(3000);
