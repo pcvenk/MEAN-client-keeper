@@ -1,3 +1,7 @@
-/*.navbar-default {*/
-    /*background-color: #0c9dff;*/
-/*}*/
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
+.btn-warning, .btn-primary{
+    width: 53px;
+}

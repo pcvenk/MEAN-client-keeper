@@ -70,7 +70,8 @@
                            name="phone"
                            ng-model="client.phone">
                 </td>
-                <td>
+                <td class="vert-align"
+                    align="center">
                     <button id="addBtn"
                             class="btn btn-primary btn-xs"
                             ng-click="addClient()">Add</button>
@@ -81,9 +82,10 @@
                 <td>{{client.lastName}}</td>
                 <td>{{client.email}}</td>
                 <td>{{client.phone}}</td>
-                <td>
-                    <button class="btn btn-warning btn-xs">Edit</button>
-                    <button class="btn btn-danger btn-xs">Delete</button>
+                <td class="vert-align"
+                    align="center">
+                    <button class="btn btn-warning btn-xs vert-align">Edit</button>
+                    <button class="btn btn-danger btn-xs vert-align">Delete</button>
                 </td>
             </tr>
         </tbody>
