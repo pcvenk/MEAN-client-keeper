@@ -54,5 +54,23 @@ app.get('/clients/:id', function(req, res){
    })
 });
 
+//Updating the client
+app.put('/clients/:id', function(req, res){
+
+   var id = req.params.id;
+   db.clients.findAndModify({query: {_id: mongojs.ObjectId(id)},
+      update: {
+         $set: {
+            firstName:  req.body.firstName,
+            lastName:   req.body.lastName,
+            email:      req.body.email,
+            phone:      req.body.phone
+         }},
+         new: true
+      }, function(err, doc){
+         res.send(doc);
+   });
+});
+
 app.listen(3000);
 console.log('Server running on port 3000');

@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', function($scope, $http, $location){
+myApp.controller('mainController', function($scope, $http, $timeout){
 
     $http.get('/clients')
         .then(function(res){
@@ -18,17 +18,33 @@ myApp.controller('mainController', function($scope, $http, $location){
         $http.post('/clients', client)
             .then(function(res){
                 console.log('Client added');
-                $location.url = '/';
+                window.location.href='/';
             });
     };
 
     $scope.editClient = function(id){
+
         $scope.isAdding = false;
         $http.get('/clients/'+id)
             .then(function(res){
                 $scope.client = res.data;
             })
     };
+
+    $scope.isUpdating = false;
+
+    $scope.upadateClient = function(){
+
+        $scope.isUpdating = true;
+        var id = $scope.client._id;
+
+        $timeout(function(){
+            $http.put('/clients/'+id, $scope.client)
+                .then(function(res){
+                    window.location.href='/';
+                });
+        }, 1500);
+    }
 
 
 });
