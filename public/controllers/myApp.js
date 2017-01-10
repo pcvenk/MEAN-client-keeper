@@ -9,9 +9,11 @@ myApp.controller('mainController', function($scope, $http, $location){
             console.log(res.data);
         });
 
+    $scope.isAdding = true;
 
     $scope.addClient = function(){
 
+        $scope.isAdding = true;
         var client = $scope.client;
         $http.post('/clients', client)
             .then(function(res){
@@ -20,7 +22,13 @@ myApp.controller('mainController', function($scope, $http, $location){
             });
     };
 
-
+    $scope.editClient = function(id){
+        $scope.isAdding = false;
+        $http.get('/clients/'+id)
+            .then(function(res){
+                $scope.client = res.data;
+            })
+    };
 
 
 });

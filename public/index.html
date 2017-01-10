@@ -74,7 +74,13 @@
                     align="center">
                     <button id="addBtn"
                             class="btn btn-primary btn-xs"
+                            ng-show="isAdding"
                             ng-click="addClient()">Add</button>
+
+                    <button id="editBtn"
+                            class="btn btn-primary btn-xs"
+                            ng-show="!isAdding"
+                            ng-click="upadateClient(client._id)">Update</button>
                 </td>
             </tr>
             <tr ng-repeat="client in clients | orderBy: 'firstName'">
@@ -84,7 +90,9 @@
                 <td>{{client.phone}}</td>
                 <td class="vert-align"
                     align="center">
-                    <button class="btn btn-warning btn-xs vert-align">Edit</button>
+                    <button class="btn btn-warning btn-xs vert-align"
+                            ng-click="editClient(client._id)">Edit
+                    </button>
                     <button class="btn btn-danger btn-xs vert-align">Delete</button>
                 </td>
             </tr>
