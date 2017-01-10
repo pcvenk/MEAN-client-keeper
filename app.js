@@ -72,5 +72,18 @@ app.put('/clients/:id', function(req, res){
    });
 });
 
+//Deleting a client
+app.delete('/clients/:id', function(req, res){
+
+   var id = req.params.id;
+   db.clients.remove({_id: mongojs.ObjectId(id)}, function(err, doc){
+      if(err){
+         res.send(err);
+      } else {
+         res.send(doc);
+      }
+   });
+});
+
 app.listen(3000);
 console.log('Server running on port 3000');

@@ -44,7 +44,21 @@ myApp.controller('mainController', function($scope, $http, $timeout){
         }, 2000);
 
         $scope.isUpdating = true;
-    }
+    };
 
+    $scope.isDeleting = false;
+
+    $scope.deleteClient = function(id){
+
+        $timeout(function(){
+            $http.delete('/clients/'+id)
+                .then(function(res){
+                    window.location.href='/';
+                });
+        }, 2000);
+
+        $scope.isDeleting = true;
+
+    };
 
 });

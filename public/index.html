@@ -32,12 +32,20 @@
 </nav>
 
 <div class="container">
-    <h1>Welcome to my site</h1>
+    <h1>Client List</h1>
 
     <div class="alert alert-success alert-dismissable"
-         ng-show="isUpdating">
+         ng-show="isUpdating"
+         ng-cloak>
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Client updated!</strong>
+    </div>
+
+    <div class="alert alert-success alert-dismissable"
+         ng-show="isDeleting"
+         ng-cloak>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Client deleted!</strong>
     </div>
 
 
@@ -101,7 +109,8 @@
                     <button class="btn btn-warning btn-xs vert-align"
                             ng-click="editClient(client._id)">Edit
                     </button>
-                    <button class="btn btn-danger btn-xs vert-align">Delete</button>
+                    <button class="btn btn-danger btn-xs vert-align"
+                            ng-click="deleteClient(client._id)">Delete</button>
                 </td>
             </tr>
         </tbody>
