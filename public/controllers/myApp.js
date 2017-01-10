@@ -33,9 +33,7 @@ myApp.controller('mainController', function($scope, $http, $timeout){
 
     $scope.isUpdating = false;
 
-    $scope.upadateClient = function(){
-
-        $scope.isUpdating = true;
+    $scope.updateClient = function(){
         var id = $scope.client._id;
 
         $timeout(function(){
@@ -43,7 +41,9 @@ myApp.controller('mainController', function($scope, $http, $timeout){
                 .then(function(res){
                     window.location.href='/';
                 });
-        }, 1500);
+        }, 2000);
+
+        $scope.isUpdating = true;
     }
 
 
